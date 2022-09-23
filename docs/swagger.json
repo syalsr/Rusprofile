@@ -1,0 +1,64 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Get company info by INN",
+        "title": "Rusprofile",
+        "contact": {}
+    },
+    "host": "localhost:8081",
+    "basePath": "/",
+    "paths": {
+        "/INN": {
+            "get": {
+                "description": "Get company info by INN",
+                "summary": "Get",
+                "parameters": [
+                    {
+                        "description": "INN",
+                        "name": "input",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/proto.Request"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/proto.Response"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "proto.Request": {
+            "type": "object",
+            "properties": {
+                "INN": {
+                    "type": "string"
+                }
+            }
+        },
+        "proto.Response": {
+            "type": "object",
+            "properties": {
+                "CompanyName": {
+                    "type": "string"
+                },
+                "Director": {
+                    "type": "string"
+                },
+                "INN": {
+                    "type": "string"
+                },
+                "KPP": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,41 @@
+basePath: /
+definitions:
+  proto.Request:
+    properties:
+      INN:
+        type: string
+    type: object
+  proto.Response:
+    properties:
+      CompanyName:
+        type: string
+      Director:
+        type: string
+      INN:
+        type: string
+      KPP:
+        type: string
+    type: object
+host: localhost:8081
+info:
+  contact: {}
+  description: Get company info by INN
+  title: Rusprofile
+paths:
+  /INN:
+    get:
+      description: Get company info by INN
+      parameters:
+      - description: INN
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/proto.Request'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/proto.Response'
+      summary: Get
+swagger: "2.0"
